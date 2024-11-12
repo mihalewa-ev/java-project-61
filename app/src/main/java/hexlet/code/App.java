@@ -1,3 +1,7 @@
-public static void main(String[] args) {
-    System.out.println("Hello World!");
+package hexlet.code;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Brain Games!");
+    }
 }

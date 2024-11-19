@@ -8,3 +8,6 @@ https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a
 
 Скринкаст 6-го шага обучения:
 https://asciinema.org/a/ehSnJ2NNZhSgk58JPQFsDr6Zb
+
+Скринкаст 7-го шага обучения:
+https://asciinema.org/a/595VLcpx6gBJWvGLByBspA4Dt

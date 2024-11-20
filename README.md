@@ -11,3 +11,6 @@ https://asciinema.org/a/ehSnJ2NNZhSgk58JPQFsDr6Zb
 
 Скринкаст 7-го шага обучения:
 https://asciinema.org/a/595VLcpx6gBJWvGLByBspA4Dt
+
+Скринкаст 7-го шага обучения:
+https://asciinema.org/a/je0k3Q05JbMEJ2nvGYzH8i6y0

@@ -21,7 +21,7 @@ public class Even {
             int number = random.nextInt(100) + 1;
             String correctAnswer = (number % 2 == 0) ? "yes" : "no";
 
-            System.out.println("Question " + number);
+            System.out.println("Question: " + number);
             String userAnswer = engine.getUserInput();
 
             if (engine.isAnswerCorrect(userAnswer, correctAnswer)) {

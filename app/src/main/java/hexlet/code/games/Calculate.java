@@ -23,7 +23,7 @@ public class Calculate {
             char operator = randomOperator();
 
             int correctAnswer = calculate(num1, num2, operator);
-            System.out.println(num1 + " " + operator + " " + num2);
+            System.out.println("Question: " + num1 + " " + operator + " " + num2);
 
             String userAnswer = engine.getUserInput();
             if (engine.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {

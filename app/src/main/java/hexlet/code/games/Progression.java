@@ -30,13 +30,14 @@ public class Progression {
         final int maxDifferenceBetweenNumber = 10; // Константа, обозначающая максильманую разницу между двумя числами
         final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
         final int maxHiddenIndex = 10; // Константа, ограничивающая появление скрытого элемента длиной прогрессии
+        final int endOfProgression = 11; // Обозначение максимальной длины прогрессии
         while (score < winScore) {
 
             int firstElement = random.nextInt(rangeOfFirstElement);
             int step = random.nextInt(maxDifferenceBetweenNumber) + oneStep;
             int hiddenIndex = random.nextInt(maxHiddenIndex);
             int correctAnswer = 0;
-            int endOfProgression = 11; // Обозначение максимальной длины прогрессии
+
             System.out.print("Question: ");
             for (int i = 0; i < endOfProgression; i++) {
                 if (i != hiddenIndex) {

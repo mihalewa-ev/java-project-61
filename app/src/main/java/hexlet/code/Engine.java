@@ -31,7 +31,7 @@ public class Engine {
 
     // Метод для вывода поздравления
     public void printWinMessage() {
-        System.out.println("Congratulations, " + userName);
+        System.out.println("Congratulations, " + userName + "!");
     }
 
     // Метод для вывода сообщения о поражении

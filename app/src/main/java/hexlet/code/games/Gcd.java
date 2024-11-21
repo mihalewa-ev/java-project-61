@@ -23,9 +23,11 @@ public class Gcd {
     public void play() {
         engine.printRules("Find the greatest common divisor of given numbers.");
 
-        while (score < 3) {
-            int num1 = random.nextInt(100) + 1;
-            int num2 = random.nextInt(100) + 1;
+        int winScore = 3;
+        int oneStep = 1;
+        while (score < winScore) {
+            int num1 = random.nextInt(100) + oneStep;
+            int num2 = random.nextInt(100) + oneStep;
 
             int correctAnswer = calculate(num1, num2);
             System.out.println("Question: " + num1 + " " + num2);

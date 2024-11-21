@@ -23,8 +23,10 @@ public class Even {
     public void play() {
         engine.printRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        while (score < 3) {
-            int number = random.nextInt(100) + 1;
+        int winScore = 3;
+        int oneStep = 1;
+        while (score < winScore) {
+            int number = random.nextInt(100) + oneStep;
             String correctAnswer = (number % 2 == 0) ? "yes" : "no";
 
             System.out.println("Question: " + number);

@@ -25,10 +25,12 @@ public class Progression {
     public void play() {
         engine.printRules("What number is missing in the progression?");
 
-        while (score < 3) {
+        int winScore = 3;
+        int oneStep = 1;
+        while (score < winScore) {
 
             int firstElement = random.nextInt(20);
-            int step = random.nextInt(10) + 1;
+            int step = random.nextInt(10) + oneStep;
             int hiddenIndex = random.nextInt(10);
             int correctAnswer = 0;
             System.out.print("Question: ");

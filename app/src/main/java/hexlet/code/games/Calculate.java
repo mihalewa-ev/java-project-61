@@ -23,9 +23,11 @@ public class Calculate {
     public void play() {
         engine.printRules("What is the result of the expression?");
 
-        while (score < 3) {
-            int num1 = random.nextInt(100) + 1;
-            int num2 = random.nextInt(100) + 1;
+        int winScore = 3;
+        int oneStep = 1;
+        while (score < winScore) {
+            int num1 = random.nextInt(100) + oneStep;
+            int num2 = random.nextInt(100) + oneStep;
             char operator = randomOperator();
 
             int correctAnswer = calculate(num1, num2, operator);

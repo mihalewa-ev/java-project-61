@@ -23,8 +23,10 @@ public class Prime {
     public void play() {
         engine.printRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        while (score < 3) {
-            int number = random.nextInt(100) + 1;
+        int winScore = 3;
+        int oneStep = 1;
+        while (score < winScore) {
+            int number = random.nextInt(100) + oneStep;
             String correctAnswer = calculate(number) ? "yes" : "no";
 
             System.out.println("Question: " + number);

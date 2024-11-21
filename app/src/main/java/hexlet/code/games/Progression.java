@@ -28,7 +28,7 @@ public class Progression {
                     System.out.print("Question: " + firstElement + i * step + " ");
                 } else {
                     correctAnswer = firstElement + i * step;
-                    System.out.print("... ");
+                    System.out.print(".. ");
                 }
             }
 

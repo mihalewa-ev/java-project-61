@@ -36,9 +36,10 @@ public class Progression {
             int step = random.nextInt(maxDifferenceBetweenNumber) + oneStep;
             int hiddenIndex = random.nextInt(maxHiddenIndex);
             int correctAnswer = 0;
+            int endOfProgression = 11; // Обозначение максимальной длины прогрессии
             System.out.print("Question: ");
-            for (int i = 0; i < 11; i++) {
-                if(i != hiddenIndex) {
+            for (int i = 0; i < endOfProgression; i++) {
+                if (i != hiddenIndex) {
                     System.out.print(firstElement + i * step + " ");
                 } else {
                     correctAnswer = firstElement + i * step;

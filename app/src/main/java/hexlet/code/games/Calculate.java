@@ -57,6 +57,11 @@ public class Calculate {
 
     /**
      * Вычисляет результат математической операции.
+     *
+     * @param num1 первый операнд
+     * @param num2 второй операнд
+     * @param operator оператор, который будет применен к операндам ('+', '-', '*')
+     * @return результат применения оператора к операндам
      */
     private int calculate(int num1, int num2, char operator) {
         return switch (operator) {

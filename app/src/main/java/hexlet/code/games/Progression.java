@@ -23,9 +23,10 @@ public class Progression {
             int step = random.nextInt(10) + 1;
             int hiddenIndex = random.nextInt(10);
             int correctAnswer = 0;
+            System.out.print("Question: ");
             for (int i = 0; i < 11; i++) {
                 if(i != hiddenIndex) {
-                    System.out.print("Question: " + firstElement + i * step + " ");
+                    System.out.print(firstElement + i * step + " ");
                 } else {
                     correctAnswer = firstElement + i * step;
                     System.out.print(".. ");

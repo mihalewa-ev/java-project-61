@@ -8,12 +8,18 @@ public class Gcd {
     private final Random random;
     private int score;
 
-    public Gcd(Engine engine) {
-        this.engine = engine;
+    public Gcd(Engine engineObj) {
+        this.engine = engineObj;
         this.random = new Random();
         this.score = 0;
     }
 
+    /**
+     * Запускает игру.
+     * В этом методе игроку задаются вопросы о нахождении наибольшего общего делителя
+     * двух случайных чисел. Игрок должен правильно ответить на 3 вопроса, чтобы выиграть.
+     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
+     */
     public void play() {
         engine.printRules("Find the greatest common divisor of given numbers.");
 
@@ -36,6 +42,13 @@ public class Gcd {
         engine.printWinMessage();
     }
 
+    /**
+     * Вычисляет наибольший общий делитель (НОД) двух чисел с использованием алгоритма Евклида.
+     *
+     * @param num1 первое число
+     * @param num2 второе число
+     * @return наибольший общий делитель двух чисел
+     */
     private int calculate(int num1, int num2) {
         while (num2 != 0) {
             int temp = num2;

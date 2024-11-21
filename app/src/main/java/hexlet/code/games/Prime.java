@@ -8,12 +8,18 @@ public class Prime {
     private final Random random;
     private int score;
 
-    public Prime(Engine engine) {
-        this.engine = engine;
+    public Prime(Engine engineObj) {
+        this.engine = engineObj;
         this.random = new Random();
         this.score = 0;
     }
 
+    /**
+     * Запускает игру.
+     * В этом методе игроку задаются вопросы о том, является ли случайное число простым.
+     * Игрок должен ответить "yes", если число простое, и "no", если нет.
+     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
+     */
     public void play() {
         engine.printRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
@@ -36,6 +42,12 @@ public class Prime {
         engine.printWinMessage();
     }
 
+    /**
+     * Проверяет, является ли число простым.
+     *
+     * @param number число для проверки
+     * @return true, если число простое, иначе false
+     */
     private boolean calculate(int number) {
         if (number <= 1) {
             return false;

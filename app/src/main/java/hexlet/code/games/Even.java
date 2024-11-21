@@ -8,12 +8,18 @@ public class Even {
     private final Random random;
     private int score;
 
-    public Even(Engine engine) {
-        this.engine = engine;
+    public Even(Engine engineObj) {
+        this.engine = engineObj;
         this.random = new Random();
         this.score = 0;
     }
 
+    /**
+     * Запускает игру.
+     * В этом методе игроку задаются вопросы о том, является ли случайное число четным.
+     * Игрок должен ответить "yes", если число четное, и "no", если число нечетное.
+     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
+     */
     public void play() {
         engine.printRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
 

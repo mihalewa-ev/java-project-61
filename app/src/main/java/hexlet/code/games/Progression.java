@@ -8,12 +8,20 @@ public class Progression {
     private final Random random;
     private int score;
 
-    public Progression(Engine engine) {
-        this.engine = engine;
+    public Progression(Engine engineObj) {
+        this.engine = engineObj;
         this.random = new Random();
         this.score = 0;
     }
 
+    /**
+     * Запускает игру.
+     * В этом методе игроку задаются вопросы о нахождении пропущенного числа в
+     * арифметической прогрессии. Игрок должен правильно ответить на 3 вопроса, чтобы выиграть.
+     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
+     * В процессе игры генерируется прогрессия с заданным первым элементом, шагом и
+     * индексов, в котором пропущено число. Пользователь должен угадать это число.
+     */
     public void play() {
         engine.printRules("What number is missing in the progression?");
 

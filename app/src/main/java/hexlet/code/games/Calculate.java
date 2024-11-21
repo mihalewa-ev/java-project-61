@@ -14,6 +14,12 @@ public class Calculate {
         this.score = 0;
     }
 
+    /**
+     * Запускает игру.
+     * Этот метод должен быть переопределен в подклассах, если вы хотите изменить логику игры.
+     * В противном случае, он обеспечивает стандартный процесс игры, включая
+     * генерацию случайных чисел, выбор оператора и проверку ответов пользователя.
+     */
     public void play() {
         engine.printRules("What is the result of the expression?");
 
@@ -37,11 +43,18 @@ public class Calculate {
         engine.printWinMessage();
     }
 
+    /**
+     * Генерирует случайный оператор для математической операции.
+     * @return случайный оператор ('+', '-', '*').
+     */
     private char randomOperator() {
         char[] operators = {'+', '-', '*'};
         return operators[random.nextInt(operators.length)];
     }
 
+    /**
+     * Вычисляет результат математической операции.
+     */
     private int calculate(int num1, int num2, char operator) {
         return switch (operator) {
             case '+' -> num1 + num2;

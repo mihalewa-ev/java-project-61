@@ -7,9 +7,9 @@ public class Engine {
     private String userName;
 
     public final void getUserName() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner inputScanner = new Scanner(System.in);
         System.out.print("May I have your name? ");
-        this.userName = scanner.next();
+        this.userName = inputScanner.next();
         System.out.println("Hello, " + userName);
     }
 

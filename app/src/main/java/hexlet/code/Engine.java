@@ -14,7 +14,7 @@ public class Engine {
     }
 
     // Метод для вывода правил игры
-    public void printRules(String gameRules) {
+    public final void printRules(String gameRules) {
         getUserName();
         System.out.println(gameRules);
     }

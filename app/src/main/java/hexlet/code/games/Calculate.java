@@ -23,7 +23,7 @@ public class Calculate {
     public void play() {
         engine.printRules("What is the result of the expression?");
 
-        int winScore = 3;
+        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
         int oneStep = 1;
         while (score < winScore) {
             int num1 = random.nextInt(100) + oneStep;

@@ -23,7 +23,7 @@ public class App {
             } while (choice < 2);
 
             Engine engine = new Engine();
-            switch(choice) {
+            switch (choice) {
                 case '0':
                     System.out.println("See you later!");
                     break;

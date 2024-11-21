@@ -8,8 +8,8 @@ public class Calculate {
     private final Random random;
     private int score;
 
-    public Calculate(Engine engine) {
-        this.engine = engine;
+    public Calculate(Engine engineObj) {
+        this.engine = engineObj;
         this.random = new Random();
         this.score = 0;
     }

@@ -4,18 +4,18 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calculate {
-    private final Engine engineInstance;
+    private final Engine engine;
     private final Random random;
     private int score;
 
-    public Calculate(Engine engineInstance) {
-        this.engineInstance = engineInstance;
+    public Calculate(Engine engine) {
+        this.engine = engine;
         this.random = new Random();
         this.score = 0;
     }
 
     public void play() {
-        engineInstance.printRules("What is the result of the expression?");
+        engine.printRules("What is the result of the expression?");
 
         while (score < 3) {
             int num1 = random.nextInt(100) + 1;
@@ -25,16 +25,16 @@ public class Calculate {
             int correctAnswer = calculate(num1, num2, operator);
             System.out.println("Question: " + num1 + " " + operator + " " + num2);
 
-            String userAnswer = engineInstance.getUserInput();
-            if (engineInstance.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {
+            String userAnswer = engine.getUserInput();
+            if (engine.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {
                 score++;
                 System.out.println("Correct!");
             } else {
-                engineInstance.printLoseMessage(userAnswer, String.valueOf(correctAnswer));
+                engine.printLoseMessage(userAnswer, String.valueOf(correctAnswer));
                 return;
             }
         }
-        engineInstance.printWinMessage();
+        engine.printWinMessage();
     }
 
     private char randomOperator() {

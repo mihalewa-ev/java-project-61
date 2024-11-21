@@ -25,7 +25,7 @@ public class Progression {
             int correctAnswer = 0;
             for (int i = 0; i < 11; i++) {
                 if(i != hiddenIndex) {
-                    System.out.print(firstElement + i * step + " ");
+                    System.out.print("Question: " + firstElement + i * step + " ");
                 } else {
                     correctAnswer = firstElement + i * step;
                     System.out.print("... ");

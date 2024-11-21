@@ -21,7 +21,7 @@ public class Prime {
             int number = random.nextInt(100) + 1;
             String correctAnswer = calculate(number) ? "yes" : "no";
 
-            System.out.println("Question " + number);
+            System.out.println("Question: " + number);
             String userAnswer = engine.getUserInput();
 
             if (engine.isAnswerCorrect(userAnswer, correctAnswer)) {

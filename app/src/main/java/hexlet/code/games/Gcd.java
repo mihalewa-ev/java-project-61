@@ -22,7 +22,7 @@ public class Gcd {
             int num2 = random.nextInt(100) + 1;
 
             int correctAnswer = calculate(num1, num2);
-            System.out.println(num1 + " and " + num2);
+            System.out.println("Question: " + num1 + " " + num2);
 
             String userAnswer = engine.getUserInput();
             if (engine.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {

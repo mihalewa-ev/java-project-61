@@ -6,7 +6,7 @@ public class Engine {
     private final Scanner scanner = new Scanner(System.in);
     private String userName;
 
-    public void getUserName() {
+    public final void getUserName() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("May I have your name? ");
         this.userName = scanner.next();

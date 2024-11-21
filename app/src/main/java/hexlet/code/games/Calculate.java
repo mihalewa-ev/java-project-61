@@ -4,37 +4,37 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calculate {
-    private final Engine gameEngine;
+    private final Engine engineInstance;
     private final Random random;
     private int score;
 
-    public Calculate(Engine gameEngine) {
-        this.gameEngine = gameEngine;
+    public Calculate(Engine engineInstance) {
+        this.engineInstance = engineInstance;
         this.random = new Random();
         this.score = 0;
     }
 
     public void play() {
-        gameEngine.printRules("What is the result of the expression?");
+        engineInstance.printRules("What is the result of the expression?");
 
         while (score < 3) {
-            int num1 = random.nextInt(100) + 1; // Генерация числа от 1 до 50
+            int num1 = random.nextInt(100) + 1;
             int num2 = random.nextInt(100) + 1;
             char operator = randomOperator();
 
             int correctAnswer = calculate(num1, num2, operator);
             System.out.println("Question: " + num1 + " " + operator + " " + num2);
 
-            String userAnswer = gameEngine.getUserInput();
-            if (gameEngine.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {
+            String userAnswer = engineInstance.getUserInput();
+            if (engineInstance.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {
                 score++;
                 System.out.println("Correct!");
             } else {
-                gameEngine.printLoseMessage(userAnswer, String.valueOf(correctAnswer));
+                engineInstance.printLoseMessage(userAnswer, String.valueOf(correctAnswer));
                 return;
             }
         }
-        gameEngine.printWinMessage();
+        engineInstance.printWinMessage();
     }
 
     private char randomOperator() {

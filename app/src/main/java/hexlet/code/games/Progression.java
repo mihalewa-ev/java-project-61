@@ -25,13 +25,16 @@ public class Progression {
     public void play() {
         engine.printRules("What number is missing in the progression?");
 
-        int winScore = 3;
-        int oneStep = 1;
+        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
+        final int rangeOfFirstElement = 20; // Константа, обозначающая предел для первого элемента прогрессии
+        final int maxDifferenceBetweenNumber = 10; // Константа, обозначающая максильманую разницу между двумя числами
+        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
+        final int maxHiddenIndex = 10; // Константа, ограничивающая появление скрытого элемента длиной прогрессии
         while (score < winScore) {
 
-            int firstElement = random.nextInt(20);
-            int step = random.nextInt(10) + oneStep;
-            int hiddenIndex = random.nextInt(10);
+            int firstElement = random.nextInt(rangeOfFirstElement);
+            int step = random.nextInt(maxDifferenceBetweenNumber) + oneStep;
+            int hiddenIndex = random.nextInt(maxHiddenIndex);
             int correctAnswer = 0;
             System.out.print("Question: ");
             for (int i = 0; i < 11; i++) {

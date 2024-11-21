@@ -23,10 +23,11 @@ public class Even {
     public void play() {
         engine.printRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        int winScore = 3;
-        int oneStep = 1;
+        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
+        final int endOfRange = 100; // Константа, обозначающая верхний предел генерируемых чисел
+        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
         while (score < winScore) {
-            int number = random.nextInt(100) + oneStep;
+            int number = random.nextInt(endOfRange) + oneStep;
             String correctAnswer = (number % 2 == 0) ? "yes" : "no";
 
             System.out.println("Question: " + number);

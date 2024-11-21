@@ -24,10 +24,11 @@ public class Calculate {
         engine.printRules("What is the result of the expression?");
 
         final int winScore = 3; // Константа для представления необходимого количества правильных ответов
-        int oneStep = 1;
+        final int endOfRange = 100; // Константа, обозначающая верхний предел генерируемых чисел
+        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
         while (score < winScore) {
-            int num1 = random.nextInt(100) + oneStep;
-            int num2 = random.nextInt(100) + oneStep;
+            int num1 = random.nextInt(endOfRange) + oneStep;
+            int num2 = random.nextInt(endOfRange) + oneStep;
             char operator = randomOperator();
 
             int correctAnswer = calculate(num1, num2, operator);

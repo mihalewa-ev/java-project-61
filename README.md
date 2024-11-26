@@ -1,10 +1,11 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/mihalewa-ev/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/mihalewa-ev/java-project-61/actions)
-
-<<<<<<< HEAD
-=======
 <a href="https://codeclimate.com/github/mihalewa-ev/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/ed0170979b400b34eac7/maintainability" /></a>
 
+What does the application do:
+This application offers the user 5 games to choose from to have fun.
+
+To run the game, enter the command "make rune-dist" in the app project directory
 
 #### EvenGame
 [![asciicast](https://asciinema.org/a/g8KZElPEWl2Hp9UGmIZFG1Em6.svg)](https://asciinema.org/a/g8KZElPEWl2Hp9UGmIZFG1Em6)

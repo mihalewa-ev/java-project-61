@@ -4,54 +4,74 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
-    private final Engine engine;
-    private final Random random;
-    private int score;
-
-    public Prime(Engine engineObj) {
-        this.engine = engineObj;
-        this.random = new Random();
-        this.score = 0;
-    }
+    public static final String gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static Random random = new Random();
 
     /**
-     * Запускает игру.
-     * В этом методе игроку задаются вопросы о том, является ли случайное число простым.
-     * Игрок должен ответить "yes", если число простое, и "no", если нет.
-     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
-     */
-    public void play() {
-        engine.printRules("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
-        final int endOfRange = 100; // Константа, обозначающая верхний предел генерируемых чисел
-        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
-        while (score < winScore) {
-            int number = random.nextInt(endOfRange) + oneStep;
-            String correctAnswer = calculate(number) ? "yes" : "no";
-
-            System.out.println("Question: " + number);
-            String userAnswer = engine.getUserInput();
-
-            if (engine.isAnswerCorrect(userAnswer, correctAnswer)) {
-                score++;
-                System.out.println("Correct!");
-            } else {
-                engine.printLoseMessage(userAnswer, correctAnswer);
-                return;
-            }
-        }
-
-        engine.printWinMessage();
-    }
-
-    /**
-     * Проверяет, является ли число простым.
+     * Starts the "Prime Number" game by preparing the game data and passing it to the engine.
      *
-     * @param number число для проверки
-     * @return true, если число простое, иначе false
+     * <p>This method generates the game data by calling {@link #getArResult()}, which prepares a set of questions
+     * and their correct answers. It then uses the {@link Engine#play(String, String[][])} method to execute the game
+     * with the provided game rules and data.</p>
      */
-    private boolean calculate(int number) {
+    public static void startGamePrime() {
+        String[][] arResult = getArResult();
+        Engine.play(gameRule, arResult);
+    }
+
+    /**
+     * Generates a 2D array containing questions and correct answers for the "Prime Number" game.
+     *
+     * <p>This method creates a set of random numbers as questions and determines whether each number is prime.
+     * The results are stored in a 2D array, where each row consists of a question (the number as a string)
+     * and the correct answer ("yes" if the number is prime, "no" otherwise).</p>
+     *
+     * @return A 2D array of questions and correct answers for the "Prime Number" game. Each row contains:
+     *         <ul>
+     *             <li>Column 0: The question (a random number as a string).</li>
+     *             <li>Column 1: The correct answer ("yes" if the number is prime, "no" otherwise).</li>
+     *         </ul>
+     */
+    private static String[][] getArResult() {
+        int columns = 2; // count of variable answer (right or wrong)
+        int endOfRange = 100; // integer, higher number range
+        int oneStep = 1; // integer for add number to 100
+        int winScore = Engine.getWinValue();
+        String[][] arResult = new String[winScore][columns];
+
+        for (int i = 0; i < winScore; i++) {
+            int number = random.nextInt(endOfRange) + oneStep;
+            String question = String.valueOf(number);
+            String correctAnswer = getCorrectAnswer(number);
+            arResult[i][0] = question;
+            arResult[i][1] = correctAnswer;
+        }
+        return arResult;
+    }
+
+    /**
+     * Determines the correct answer for the "Prime Number" game based on whether the input number is prime.
+     *
+     * <p>This method checks if the provided number is a prime number using the getCorrectAnswer method.
+     * It returns "yes" if the number is prime, or "no" otherwise.</p>
+     *
+     * @param number The number to check for primality.
+     * @return "yes" if the number is prime, "no" otherwise.
+     */
+    private static String getCorrectAnswer(int number) {
+        return calculate(number) ? "yes" : "no";
+    }
+
+    /**
+     * Determines whether a given number is prime.
+     *
+     * <p>This method checks if a number is prime using a loop that tests divisors from 2 to the square root of the number.
+     * A number is considered prime if it is greater than 1 and has no divisors other than 1 and itself.</p>
+     *
+     * @param number The number to check for primality.
+     * @return {@code true} if the number is prime, {@code false} otherwise.
+     */
+    public static boolean calculate(int number) {
         if (number <= 1) {
             return false;
         }

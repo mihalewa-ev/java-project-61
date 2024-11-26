@@ -4,60 +4,70 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Gcd {
-    private final Engine engine;
-    private final Random random;
-    private int score;
+    public static final String gameRule = "Find the greatest common divisor of given numbers.";
+    public static Random random = new Random();
 
-    public Gcd(Engine engineObj) {
-        this.engine = engineObj;
-        this.random = new Random();
-        this.score = 0;
+    /**
+     * Starts the game for the "Greatest Common Divisor (GCD)" challenge.
+     *
+     * <p>This method retrieves the game data, including questions and answers, by calling {@link #getArResult()}.
+     * It then passes the game rules and data to the {@link Engine#play(String, String[][])} method to initiate the game.</p>
+     */
+    public static void startGameGCD() {
+        String[][] arResult = getArResult();
+        Engine.play(gameRule, arResult);
     }
 
     /**
-     * Запускает игру.
-     * В этом методе игроку задаются вопросы о нахождении наибольшего общего делителя
-     * двух случайных чисел. Игрок должен правильно ответить на 3 вопроса, чтобы выиграть.
-     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
+     * Generates a 2D array containing questions and their corresponding correct answers for the GCD challenge.
+     *
+     * <p>This method generates pairs of random numbers and calculates their greatest common divisor (GCD).
+     * Each pair of numbers forms a question, and the GCD is the correct answer. The results are stored in a 2D array
+     * where each row contains a question and its correct answer.</p>
+     *
+     * @return A 2D array of questions and correct answers for the GCD game. Each row contains:
+     *         <ul>
+     *             <li>Column 0: The question (a pair of numbers as a string).</li>
+     *             <li>Column 1: The correct answer (the GCD of the numbers).</li>
+     *         </ul>
      */
-    public void play() {
-        engine.printRules("Find the greatest common divisor of given numbers.");
+    private static String[][] getArResult() {
 
-        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
-        final int endOfRange = 100; // Константа, обозначающая верхний предел генерируемых чисел
-        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
-        while (score < winScore) {
+        int winScore = Engine.getWinValue();
+        int columns = 2; // count of variable answer (right or wrong)
+        int endOfRange = 100; // integer, higher number range
+        int oneStep = 1; // integer for add number to 100
+        String[][] arResult = new String[winScore][columns];
+
+        for (int i = 0; i < winScore; i++) {
             int num1 = random.nextInt(endOfRange) + oneStep;
             int num2 = random.nextInt(endOfRange) + oneStep;
 
-            int correctAnswer = calculate(num1, num2);
-            System.out.println("Question: " + num1 + " " + num2);
-
-            String userAnswer = engine.getUserInput();
-            if (engine.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {
-                score++;
-                System.out.println("Correct!");
-            } else {
-                engine.printLoseMessage(userAnswer, String.valueOf(correctAnswer));
-                return;
-            }
+            String question = (num1) + " " + (num2);
+            String correctAnswer = calculate(num1, num2);
+            arResult[i][0] = question;
+            arResult[i][1] = correctAnswer;
         }
-        engine.printWinMessage();
+        return arResult;
     }
 
     /**
-     * Вычисляет наибольший общий делитель (НОД) двух чисел с использованием алгоритма Евклида.
+     * Calculates the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
      *
-     * @param num1 первое число
-     * @param num2 второе число
-     * @return наибольший общий делитель двух чисел
+     * <p>The method repeatedly divides the larger number by the smaller number and replaces the larger number with
+     * the remainder until the remainder is zero. The last non-zero remainder is the GCD.</p>
+     *
+     * @param num1 The first integer.
+     * @param num2 The second integer.
+     * @return The greatest common divisor (GCD) of the two integers.
      */
-    private int calculate(int num1, int num2) {
+    public static String calculate(int num1, int num2) {
         while (num2 != 0) {
             int temp = num2;
             num2 = num1 % num2;
             num1 = temp;
         }
-        return num1;
+
+        return String.valueOf(num1);
     }
 }

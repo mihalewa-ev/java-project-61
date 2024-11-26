@@ -4,71 +4,80 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calculate {
-    private final Engine engine;
-    private final Random random;
-    private int score;
+    public static final String gameRule = "What is the result of the expression?";
+    public static Random random = new Random();
 
-    public Calculate(Engine engineObj) {
-        this.engine = engineObj;
-        this.random = new Random();
-        this.score = 0;
+    /**
+     * Starts the "Calculate" game by preparing the game data and passing it to the game engine.
+     *
+     * <p>This method generates questions and correct answers for a math-based game where the player
+     * calculates the result of random arithmetic expressions. It uses the {@link #getArResult()} method
+     * to prepare the game data and then invokes the {@link Engine#play(String, String[][])} method to run the game.</p>
+     */
+    public static void startGameCalculate() {
+        String[][] arResult = getArResult();
+        Engine.play(gameRule, arResult);
     }
 
     /**
-     * Запускает игру.
-     * Этот метод должен быть переопределен в подклассах, если вы хотите изменить логику игры.
-     * В противном случае, он обеспечивает стандартный процесс игры, включая
-     * генерацию случайных чисел, выбор оператора и проверку ответов пользователя.
+     * Generates a 2D array of questions and correct answers for the "Calculate" game.
+     *
+     * <p>This method creates random arithmetic expressions using two operands and a random operator
+     * ('+', '-', or '*') and calculates their results. Each question and its corresponding correct answer
+     * are stored in a 2D array.</p>
+     *
+     * @return A 2D array containing:
+     *         <ul>
+     *             <li>Column 0: The question (e.g., "5 + 3").</li>
+     *             <li>Column 1: The correct answer (e.g., "8").</li>
+     *         </ul>
      */
-    public void play() {
-        engine.printRules("What is the result of the expression?");
+    private static String[][] getArResult() {
 
-        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
-        final int endOfRange = 100; // Константа, обозначающая верхний предел генерируемых чисел
-        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
-        while (score < winScore) {
+        int columns = 2; // count of variable answer (right or wrong)
+        int endOfRange = 100; // integer, higher number range
+        int oneStep = 1; // integer for add number to 100
+        int winScore = Engine.getWinValue();
+        String[][] arResult = new String[winScore][columns];
+
+        for (int i = 0; i < winScore; i++) {
+            Random random = new Random();
             int num1 = random.nextInt(endOfRange) + oneStep;
             int num2 = random.nextInt(endOfRange) + oneStep;
-            char operator = randomOperator();
-
-            int correctAnswer = calculate(num1, num2, operator);
-            System.out.println("Question: " + num1 + " " + operator + " " + num2);
-
-            String userAnswer = engine.getUserInput();
-            if (engine.isAnswerCorrect(userAnswer, String.valueOf(correctAnswer))) {
-                score++;
-                System.out.println("Correct!");
-            } else {
-                engine.printLoseMessage(userAnswer, String.valueOf(correctAnswer));
-                return;
-            }
+            String operator = randomMathOperator();
+            String question = num1 + " " + operator + " " + num2;
+            String correctAnswer = String.valueOf(calculate(num1, num2, operator));
+            arResult[i][0] = question;
+            arResult[i][1] = correctAnswer;
         }
-        engine.printWinMessage();
+        return arResult;
     }
 
     /**
-     * Генерирует случайный оператор для математической операции.
-     * @return случайный оператор ('+', '-', '*').
-     */
-    private char randomOperator() {
-        char[] operators = {'+', '-', '*'};
-        return operators[random.nextInt(operators.length)];
-    }
-
-    /**
-     * Вычисляет результат математической операции.
+     * Performs a calculation based on the given operator and two operands.
      *
-     * @param num1 первый операнд
-     * @param num2 второй операнд
-     * @param operator оператор, который будет применен к операндам ('+', '-', '*')
-     * @return результат применения оператора к операндам
+     * @param num1    the first operand
+     * @param num2    the second operand
+     * @param operator the mathematical operator as a String ("+", "-", or "*")
+     * @return the result of the operation
+     * @throws IllegalArgumentException if the operator is not one of "+", "-", or "*"
      */
-    private int calculate(int num1, int num2, char operator) {
+    public static int calculate(int num1, int num2, String operator) {
         return switch (operator) {
-            case '+' -> num1 + num2;
-            case '-' -> num1 - num2;
-            case '*' -> num1 * num2;
+            case "+" -> num1 + num2;
+            case "-" -> num1 - num2;
+            case "*" -> num1 * num2;
             default -> throw new IllegalArgumentException("No-know operator: " + operator);
         };
+    }
+
+    /**
+     * Generates a random mathematical operator as a String.
+     *
+     * @return a randomly selected operator ("+", "-", or "*")
+     */
+    public static String randomMathOperator() {
+        String[] operators = {"+", "-", "*"};
+        return operators[random.nextInt(operators.length)];
     }
 }

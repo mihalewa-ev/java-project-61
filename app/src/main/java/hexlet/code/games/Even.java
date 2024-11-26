@@ -4,43 +4,57 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
-    private final Engine engine;
-    private final Random random;
-    private int score;
+    public static final String gameRule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public Even(Engine engineObj) {
-        this.engine = engineObj;
-        this.random = new Random();
-        this.score = 0;
+    /**
+     * Starts the game for the "Even" challenge by retrieving the game data and passing it to the engine for processing.
+     *
+     * <p>This method fetches the results array (arResult) through the {@link #getArResult()} method, which contains the necessary
+     * game data, and then calls the {@link Engine#play(String, String[][])} method to initiate the game using the game rules
+     * (gameRule) and the retrieved data.</p>
+     */
+    public static void startGameEven() {
+        String[][] arResult = getArResult();
+        Engine.play(gameRule, arResult);
     }
 
     /**
-     * Запускает игру.
-     * В этом методе игроку задаются вопросы о том, является ли случайное число четным.
-     * Игрок должен ответить "yes", если число четное, и "no", если число нечетное.
-     * Игра продолжается, пока игрок не наберет 3 правильных ответа.
+     * Generates a 2D array containing questions and their corresponding correct answers for the "Even" challenge.
+     *
+     * <p>This method generates a set of random numbers and determines whether each number is even or odd. It creates a
+     * 2D array where each row consists of a question (the number) and the correct answer ("yes" for even, "no" for odd).</p>
+     *
+     * @return A 2D array of questions and correct answers, where each row contains a question and its corresponding correct answer.
      */
-    public void play() {
-        engine.printRules("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    private static String[][] getArResult() {
 
-        final int winScore = 3; // Константа для представления необходимого количества правильных ответов
-        final int endOfRange = 100; // Константа, обозначающая верхний предел генерируемых чисел
-        final int oneStep = 1; // Константа, обозначающая один шаг для округления числа
-        while (score < winScore) {
+        int winScore = Engine.getWinValue();
+        int columns = 2; // count of variable answer (right or wrong)
+        int endOfRange = 100; // integer, higher number range
+        int oneStep = 1; // integer for add number to 100
+        String[][] arResult = new String[winScore][columns];
+
+        for (int i = 0; i < winScore; i++) {
+            Random random = new Random();
             int number = random.nextInt(endOfRange) + oneStep;
-            String correctAnswer = (number % 2 == 0) ? "yes" : "no";
-
-            System.out.println("Question: " + number);
-            String userAnswer = engine.getUserInput();
-
-            if (engine.isAnswerCorrect(userAnswer, correctAnswer)) {
-                score++;
-                System.out.println("Correct!");
-            } else {
-                engine.printLoseMessage(userAnswer, correctAnswer);
-                return;
-            }
+            String question = String.valueOf(number);
+            String correctAnswer = isEven(number);
+            arResult[i][0] = question;
+            arResult[i][1] = correctAnswer;
         }
-        engine.printWinMessage();
+        return arResult;
+    }
+
+    /**
+     * Determines whether a given number is even or odd.
+     *
+     * <p>This method checks if the provided number is divisible by 2 and returns "yes" if the number is even,
+     * or "no" if the number is odd.</p>
+     *
+     * @param number The number to be checked for evenness.
+     * @return "yes" if the number is even, "no" if the number is odd.
+     */
+    private static String isEven(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 }

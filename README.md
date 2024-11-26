@@ -45,6 +45,7 @@ public class Even {
 =======
 <a href="https://codeclimate.com/github/mihalewa-ev/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/ed0170979b400b34eac7/maintainability" /></a>
 
+[![asciicast]({[ссылка](https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a)}.svg)]({[ссылка](https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a)})  
 Скринкаст 5-го шага обучения:
 https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a
 

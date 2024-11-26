@@ -7,7 +7,7 @@
 
 
 #### EvenGame
-[![asciicast](https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a.svg)](https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a)
+[![asciicast](https://asciinema.org/a/g8KZElPEWl2Hp9UGmIZFG1Em6.svg)](https://asciinema.org/a/g8KZElPEWl2Hp9UGmIZFG1Em6)
 
 
 Скринкаст 5-го шага обучения:

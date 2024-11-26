@@ -9,19 +9,14 @@
 #### EvenGame
 [![asciicast](https://asciinema.org/a/g8KZElPEWl2Hp9UGmIZFG1Em6.svg)](https://asciinema.org/a/g8KZElPEWl2Hp9UGmIZFG1Em6)
 
+#### Calculate
+[![asciicast](https://asciinema.org/a/ehSnJ2NNZhSgk58JPQFsDr6Zb.svg)](https://asciinema.org/a/ehSnJ2NNZhSgk58JPQFsDr6Zb)
 
-Скринкаст 5-го шага обучения:
-https://asciinema.org/connect/ded0e8e1-cc04-41eb-851b-16c54396548a
+#### GCD
+[![asciicast](https://asciinema.org/a/595VLcpx6gBJWvGLByBspA4Dt.svg)](https://asciinema.org/a/595VLcpx6gBJWvGLByBspA4Dt)
 
-Скринкаст 6-го шага обучения:
-https://asciinema.org/a/ehSnJ2NNZhSgk58JPQFsDr6Zb
+#### Progression
+[![asciicast](https://asciinema.org/a/je0k3Q05JbMEJ2nvGYzH8i6y0.svg)](https://asciinema.org/a/je0k3Q05JbMEJ2nvGYzH8i6y0)
 
-Скринкаст 7-го шага обучения:
-https://asciinema.org/a/595VLcpx6gBJWvGLByBspA4Dt
-
-Скринкаст 8-го шага обучения:
-https://asciinema.org/a/je0k3Q05JbMEJ2nvGYzH8i6y0
-
-Скринкаст 9-го шага обучения:
-https://asciinema.org/a/Yi5P5ZswaHLBwjUHdHR7ibMfa
->>>>>>> be9a70eba4740bf488d589638384a2989c981d77
+#### Prime
+[![asciicast](https://asciinema.org/a/Yi5P5ZswaHLBwjUHdHR7ibMfa.svg)](https://asciinema.org/a/Yi5P5ZswaHLBwjUHdHR7ibMfa)

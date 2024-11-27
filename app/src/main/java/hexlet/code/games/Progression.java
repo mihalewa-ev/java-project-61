@@ -8,7 +8,6 @@ import hexlet.code.Engine;
 public class Progression {
     public static final String GAME_RULE = "What number is missing in the progression?";
     private static final Random RANDOM = new Random();
-    public static int maxDifferenceBetweenNumber = 10;
 
     /**
      * Starts the "Progression" game by preparing game data and passing it to the game engine.
@@ -36,6 +35,7 @@ public class Progression {
      */
     private static String[][] getArResult() {
         int winScore = Engine.getWinValue();
+        int maxDifferenceBetweenNumber = 10; // max difference between two closer number
         int columns = 2; // count of variable answer (right or wrong)
         int endOfRange = 100; // integer higher number range to 100
         int oneStep = 1; // integer for add number to 100

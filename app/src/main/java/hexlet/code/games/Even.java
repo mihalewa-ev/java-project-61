@@ -34,7 +34,7 @@ public class Even {
 
         int winScore = Engine.getWinValue();
         int columns = 2; // count of variable answer (right or wrong)
-        int endOfRange = 100; // integer higher number range to 100
+        int endOfRange = 100; // higher number range to 100
         int oneStep = 1; // integer for add number to 100
         String[][] arResult = new String[winScore][columns];
 

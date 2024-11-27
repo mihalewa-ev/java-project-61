@@ -35,7 +35,7 @@ public class Progression {
      */
     private static String[][] getArResult() {
         int winScore = Engine.getWinValue();
-        int maxDifferenceBetweenNumber = 10; // max difference between two closer number
+        final int maxDifferenceBetweenNumber = 10; // max difference between two closer number
         final int columns = 2; // count of variable answer (right or wrong)
         final int endOfRange = 100; // higher number range to 100
         final int oneStep = 1; // integer for add number to 100

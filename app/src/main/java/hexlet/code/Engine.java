@@ -4,16 +4,17 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int winScore = 3; // scores needs to win
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final int WIN_SCORE = 3; // scores needs to win
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static int getWinValue() {
-        return winScore;
+        return WIN_SCORE;
     }
 
     /**
      * Gets the username and stores it.
      * Prompts the user for their name and greets them.
+     * @return means a user's name
      */
     public static String getUserName() {
         Scanner inputScanner = new Scanner(System.in);
@@ -38,6 +39,7 @@ public class Engine {
     /**
      * Displays a message about the win.
      * Congratulates the user on the win, using their name.
+     * @param userName the user's name to display.
      */
     public static void printWinMessage(String userName) {
         System.out.println("Congratulations, " + userName + "!");
@@ -49,6 +51,7 @@ public class Engine {
      *
      * @param userReply the answer entered by the user.
      * @param correctAnswer the correct answer to display.
+     * @param userName the user's name to display.
      */
     public static void printLoseMessage(String userReply, String correctAnswer, String userName) {
         System.out.println(userReply + " is wrong answer ;( Correct answer was " + correctAnswer);
@@ -68,7 +71,8 @@ public class Engine {
      * <li>If the user has collected enough points, the game ends with a win.</li>
      * </ul>
      *
-     * @param gameRules a string containing a description of the game rules that will be displayed before the game starts.
+     * @param gameRules a string containing a description of the game rules.
+     * @param arResult an array of result method.
      */
     public static void play(String gameRules, String[][] arResult) {
         String userName = getUserName();
@@ -82,7 +86,7 @@ public class Engine {
             String correctAnswer = arResult[score][1];
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String userReply = scanner.next();
+            String userReply = SCANNER.next();
 
             if (userReply.equals(correctAnswer)) {
                 System.out.println("Correct!");

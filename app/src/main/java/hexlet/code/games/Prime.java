@@ -4,8 +4,9 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
-    public static final String gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    public static Random random = new Random();
+    public static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final Random RANDOM = new Random();
+
 
     /**
      * Starts the "Prime Number" game by preparing the game data and passing it to the engine.
@@ -16,7 +17,7 @@ public class Prime {
      */
     public static void startGamePrime() {
         String[][] arResult = getArResult();
-        Engine.play(gameRule, arResult);
+        Engine.play(GAME_RULE, arResult);
     }
 
     /**
@@ -36,11 +37,11 @@ public class Prime {
         int columns = 2; // count of variable answer (right or wrong)
         int endOfRange = 100; // integer, higher number range
         int oneStep = 1; // integer for add number to 100
-        int winScore = Engine.getWinValue();
-        String[][] arResult = new String[winScore][columns];
+        int WinScore = Engine.getWinValue();
+        String[][] arResult = new String[WinScore][columns];
 
-        for (int i = 0; i < winScore; i++) {
-            int number = random.nextInt(endOfRange) + oneStep;
+        for (int i = 0; i < WinScore; i++) {
+            int number = RANDOM.nextInt(endOfRange) + oneStep;
             String question = String.valueOf(number);
             String correctAnswer = getCorrectAnswer(number);
             arResult[i][0] = question;
@@ -65,7 +66,8 @@ public class Prime {
     /**
      * Determines whether a given number is prime.
      *
-     * <p>This method checks if a number is prime using a loop that tests divisors from 2 to the square root of the number.
+     * <p>This method checks if a number is prime using a loop that tests divisors
+     * from 2 to the square root of the number.
      * A number is considered prime if it is greater than 1 and has no divisors other than 1 and itself.</p>
      *
      * @param number The number to check for primality.

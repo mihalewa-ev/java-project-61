@@ -4,37 +4,41 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
-    public static final String gameRule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     /**
      * Starts the game for the "Even" challenge by retrieving the game data and passing it to the engine for processing.
      *
-     * <p>This method fetches the results array (arResult) through the {@link #getArResult()} method, which contains the necessary
-     * game data, and then calls the {@link Engine#play(String, String[][])} method to initiate the game using the game rules
-     * (gameRule) and the retrieved data.</p>
+     * <p>This method fetches the results array (arResult) through the {@link #getArResult()} method,
+     * which contains the necessary
+     * game data, and then calls the {@link Engine#play(String, String[][])} method to
+     * initiate the game using the game rules
+     * (GAME_RULE) and the retrieved data.</p>
      */
     public static void startGameEven() {
         String[][] arResult = getArResult();
-        Engine.play(gameRule, arResult);
+        Engine.play(GAME_RULE, arResult);
     }
 
     /**
      * Generates a 2D array containing questions and their corresponding correct answers for the "Even" challenge.
      *
      * <p>This method generates a set of random numbers and determines whether each number is even or odd. It creates a
-     * 2D array where each row consists of a question (the number) and the correct answer ("yes" for even, "no" for odd).</p>
+     * 2D array where each row consists of a question (the number) and the correct
+     * answer ("yes" for even, "no" for odd).</p>
      *
-     * @return A 2D array of questions and correct answers, where each row contains a question and its corresponding correct answer.
+     * @return A 2D array of questions and correct answers, where each row contains a
+     * question and its corresponding correct answer.
      */
     private static String[][] getArResult() {
 
-        int winScore = Engine.getWinValue();
+        int WinScore = Engine.getWinValue();
         int columns = 2; // count of variable answer (right or wrong)
         int endOfRange = 100; // integer, higher number range
         int oneStep = 1; // integer for add number to 100
-        String[][] arResult = new String[winScore][columns];
+        String[][] arResult = new String[WinScore][columns];
 
-        for (int i = 0; i < winScore; i++) {
+        for (int i = 0; i < WinScore; i++) {
             Random random = new Random();
             int number = random.nextInt(endOfRange) + oneStep;
             String question = String.valueOf(number);

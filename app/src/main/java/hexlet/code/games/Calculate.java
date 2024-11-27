@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calculate {
-    public static final String gameRule = "What is the result of the expression?";
-    public static Random random = new Random();
+    public static final String GAME_RULE = "What is the result of the expression?";
+    private static final Random RANDOM = new Random();
 
     /**
      * Starts the "Calculate" game by preparing the game data and passing it to the game engine.
@@ -16,7 +16,7 @@ public class Calculate {
      */
     public static void startGameCalculate() {
         String[][] arResult = getArResult();
-        Engine.play(gameRule, arResult);
+        Engine.play(GAME_RULE, arResult);
     }
 
     /**
@@ -37,10 +37,10 @@ public class Calculate {
         int columns = 2; // count of variable answer (right or wrong)
         int endOfRange = 100; // integer, higher number range
         int oneStep = 1; // integer for add number to 100
-        int winScore = Engine.getWinValue();
-        String[][] arResult = new String[winScore][columns];
+        int WinScore = Engine.getWinValue();
+        String[][] arResult = new String[WinScore][columns];
 
-        for (int i = 0; i < winScore; i++) {
+        for (int i = 0; i < WinScore; i++) {
             Random random = new Random();
             int num1 = random.nextInt(endOfRange) + oneStep;
             int num2 = random.nextInt(endOfRange) + oneStep;
@@ -78,6 +78,6 @@ public class Calculate {
      */
     public static String randomMathOperator() {
         String[] operators = {"+", "-", "*"};
-        return operators[random.nextInt(operators.length)];
+        return operators[RANDOM.nextInt(operators.length)];
     }
 }

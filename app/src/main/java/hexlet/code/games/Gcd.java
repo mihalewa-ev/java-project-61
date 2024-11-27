@@ -4,18 +4,19 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Gcd {
-    public static final String gameRule = "Find the greatest common divisor of given numbers.";
-    public static Random random = new Random();
+    public static final String GAME_RULE = "Find the greatest common divisor of given numbers.";
+    private static final Random RANDOM = new Random();
 
     /**
      * Starts the game for the "Greatest Common Divisor (GCD)" challenge.
      *
      * <p>This method retrieves the game data, including questions and answers, by calling {@link #getArResult()}.
-     * It then passes the game rules and data to the {@link Engine#play(String, String[][])} method to initiate the game.</p>
+     * It then passes the game rules and data to the
+     * {@link Engine#play(String, String[][])} method to initiate the game.</p>
      */
     public static void startGameGCD() {
         String[][] arResult = getArResult();
-        Engine.play(gameRule, arResult);
+        Engine.play(GAME_RULE, arResult);
     }
 
     /**
@@ -33,15 +34,15 @@ public class Gcd {
      */
     private static String[][] getArResult() {
 
-        int winScore = Engine.getWinValue();
+        int WinScore = Engine.getWinValue();
         int columns = 2; // count of variable answer (right or wrong)
         int endOfRange = 100; // integer, higher number range
         int oneStep = 1; // integer for add number to 100
-        String[][] arResult = new String[winScore][columns];
+        String[][] arResult = new String[WinScore][columns];
 
-        for (int i = 0; i < winScore; i++) {
-            int num1 = random.nextInt(endOfRange) + oneStep;
-            int num2 = random.nextInt(endOfRange) + oneStep;
+        for (int i = 0; i < WinScore; i++) {
+            int num1 = RANDOM.nextInt(endOfRange) + oneStep;
+            int num2 = RANDOM.nextInt(endOfRange) + oneStep;
 
             String question = (num1) + " " + (num2);
             String correctAnswer = calculate(num1, num2);

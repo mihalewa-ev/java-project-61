@@ -35,12 +35,12 @@ public class Prime {
      */
     private static String[][] getArResult() {
         int columns = 2; // count of variable answer (right or wrong)
-        int endOfRange = 100; // integer, higher number range
+        int endOfRange = 100; // integer higher number range to 100
         int oneStep = 1; // integer for add number to 100
-        int WinScore = Engine.getWinValue();
-        String[][] arResult = new String[WinScore][columns];
+        int winScore = Engine.getWinValue();
+        String[][] arResult = new String[winScore][columns];
 
-        for (int i = 0; i < WinScore; i++) {
+        for (int i = 0; i < winScore; i++) {
             int number = RANDOM.nextInt(endOfRange) + oneStep;
             String question = String.valueOf(number);
             String correctAnswer = getCorrectAnswer(number);

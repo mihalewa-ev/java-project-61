@@ -34,13 +34,13 @@ public class Gcd {
      */
     private static String[][] getArResult() {
 
-        int WinScore = Engine.getWinValue();
+        int winScore = Engine.getWinValue();
         int columns = 2; // count of variable answer (right or wrong)
-        int endOfRange = 100; // integer, higher number range
+        int endOfRange = 100; // integer higher number range to 100
         int oneStep = 1; // integer for add number to 100
-        String[][] arResult = new String[WinScore][columns];
+        String[][] arResult = new String[winScore][columns];
 
-        for (int i = 0; i < WinScore; i++) {
+        for (int i = 0; i < winScore; i++) {
             int num1 = RANDOM.nextInt(endOfRange) + oneStep;
             int num2 = RANDOM.nextInt(endOfRange) + oneStep;
 

@@ -9,7 +9,6 @@ public class Progression {
     public static final String GAME_RULE = "What number is missing in the progression?";
     private static final Random RANDOM = new Random();
     public static int maxDifferenceBetweenNumber = 10;
-    public static int WinScore = Engine.getWinValue();
 
     /**
      * Starts the "Progression" game by preparing game data and passing it to the game engine.
@@ -36,13 +35,14 @@ public class Progression {
      *         </ul>
      */
     private static String[][] getArResult() {
+        int winScore = Engine.getWinValue();
         int columns = 2; // count of variable answer (right or wrong)
-        int endOfRange = 100; // integer, higher number range
+        int endOfRange = 100; // integer higher number range to 100
         int oneStep = 1; // integer for add number to 100
         int arraySize = 10; // size of array
-        String[][] arResult = new String[WinScore][columns];
+        String[][] arResult = new String[winScore][columns];
 
-        for (int i = 0; i < WinScore; i++) {
+        for (int i = 0; i < winScore; i++) {
             int number = RANDOM.nextInt(endOfRange) + oneStep;
             int progressionStep = RANDOM.nextInt(maxDifferenceBetweenNumber) + oneStep;
             int[] progression = getProgression(number, progressionStep, arraySize);

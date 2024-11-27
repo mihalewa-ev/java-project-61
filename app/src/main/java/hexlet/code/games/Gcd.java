@@ -35,14 +35,14 @@ public class Gcd {
     private static String[][] getArResult() {
 
         int winScore = Engine.getWinValue();
-        int columns = 2; // count of variable answer (right or wrong)
-        int endOfRange = 100; // integer higher number range to 100
-        int oneStep = 1; // integer for add number to 100
-        String[][] arResult = new String[winScore][columns];
+        final int COLUMNS = 2; // count of variable answer (right or wrong)
+        final int END_OF_RANGE = 100; // higher number range to 100
+        final int ONE_STEP = 1; // integer for add number to 100
+        String[][] arResult = new String[winScore][COLUMNS];
 
         for (int i = 0; i < winScore; i++) {
-            int num1 = RANDOM.nextInt(endOfRange) + oneStep;
-            int num2 = RANDOM.nextInt(endOfRange) + oneStep;
+            int num1 = RANDOM.nextInt(END_OF_RANGE) + ONE_STEP;
+            int num2 = RANDOM.nextInt(END_OF_RANGE) + ONE_STEP;
 
             String question = (num1) + " " + (num2);
             String correctAnswer = calculate(num1, num2);

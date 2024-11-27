@@ -36,17 +36,17 @@ public class Progression {
     private static String[][] getArResult() {
         int winScore = Engine.getWinValue();
         int maxDifferenceBetweenNumber = 10; // max difference between two closer number
-        int columns = 2; // count of variable answer (right or wrong)
-        int endOfRange = 100; // integer higher number range to 100
-        int oneStep = 1; // integer for add number to 100
-        int arraySize = 10; // size of array
-        String[][] arResult = new String[winScore][columns];
+        final int COLUMNS = 2; // count of variable answer (right or wrong)
+        final int END_OF_RANGE = 100; // higher number range to 100
+        final int ONE_STEP = 1; // integer for add number to 100
+        final int ARRAY_SIZE = 10; // size of array
+        String[][] arResult = new String[winScore][COLUMNS];
 
         for (int i = 0; i < winScore; i++) {
-            int number = RANDOM.nextInt(endOfRange) + oneStep;
-            int progressionStep = RANDOM.nextInt(maxDifferenceBetweenNumber) + oneStep;
-            int[] progression = getProgression(number, progressionStep, arraySize);
-            int hiddenIndex = RANDOM.nextInt(arraySize);
+            int number = RANDOM.nextInt(END_OF_RANGE) + ONE_STEP;
+            int progressionStep = RANDOM.nextInt(maxDifferenceBetweenNumber) + ONE_STEP;
+            int[] progression = getProgression(number, progressionStep, ARRAY_SIZE);
+            int hiddenIndex = RANDOM.nextInt(ARRAY_SIZE);
             String question = getQuestion(progression, hiddenIndex);
             int correctAnswer = getData(hiddenIndex, progression);
             arResult[i][0] = question;

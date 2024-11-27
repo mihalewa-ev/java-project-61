@@ -34,16 +34,16 @@ public class Calculate {
      */
     private static String[][] getArResult() {
 
-        final int COLUMNS = 2; // count of variable answer (right or wrong)
-        final int END_OF_RANGE = 100; // higher number range to 100
-        final int ONE_STEP = 1; // integer for add number to 100
+        final int columns = 2; // count of variable answer (right or wrong)
+        final int endOfRange = 100; // higher number range to 100
+        final int oneStep = 1; // integer for add number to 100
         int winScore = Engine.getWinValue();
-        String[][] arResult = new String[winScore][COLUMNS];
+        String[][] arResult = new String[winScore][columns];
 
         for (int i = 0; i < winScore; i++) {
             Random random = new Random();
-            int num1 = random.nextInt(END_OF_RANGE) + ONE_STEP;
-            int num2 = random.nextInt(END_OF_RANGE) + ONE_STEP;
+            int num1 = random.nextInt(endOfRange) + oneStep;
+            int num2 = random.nextInt(endOfRange) + oneStep;
             String operator = randomMathOperator();
             String question = num1 + " " + operator + " " + num2;
             String correctAnswer = String.valueOf(calculate(num1, num2, operator));

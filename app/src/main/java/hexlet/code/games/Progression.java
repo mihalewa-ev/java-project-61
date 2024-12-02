@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.lang.reflect.Array;
 import java.util.Random;
-import java.util.StringJoiner;
+import java.util.Arrays;
 import hexlet.code.Engine;
 
 public class Progression {
@@ -77,14 +77,14 @@ public class Progression {
      * @return A string representation of the progression with the missing number replaced by ".".
      */
     static String getQuestion(int[] progression, int hiddenIndex) {
-        var joiner = new StringJoiner(" ");
 
-        for (var i = 0; i < progression.length; i += 1) {
-            var element = i == hiddenIndex ? ".." : Integer.toString(progression[i]);
-            joiner.add(element);
-        }
+        String[] stringProgression = Arrays.stream(progression)
+                .mapToObj(String::valueOf)
+                .toArray(String[]::new);
 
-        return joiner.toString();
+        stringProgression[hiddenIndex] = "..";
+
+        return String.join(" ", stringProgression);
     }
 
     /**

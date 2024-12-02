@@ -42,7 +42,7 @@ public class Even {
             Random random = new Random();
             int number = random.nextInt(endOfRange) + oneStep;
             String question = String.valueOf(number);
-            String correctAnswer = isEven(number);
+            String correctAnswer = isEven(number) ? "yes" : "no";
             arResult[i][0] = question;
             arResult[i][1] = correctAnswer;
         }
@@ -58,7 +58,7 @@ public class Even {
      * @param number The number to be checked for evenness.
      * @return "yes" if the number is even, "no" if the number is odd.
      */
-    private static String isEven(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

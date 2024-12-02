@@ -44,7 +44,7 @@ public class Calculate {
             Random random = new Random();
             int num1 = random.nextInt(endOfRange) + oneStep;
             int num2 = random.nextInt(endOfRange) + oneStep;
-            String operator = randomMathOperator();
+            char operator = randomMathOperator();
             String question = num1 + " " + operator + " " + num2;
             String correctAnswer = String.valueOf(calculate(num1, num2, operator));
             arResult[i][0] = question;
@@ -62,11 +62,11 @@ public class Calculate {
      * @return the result of the operation
      * @throws IllegalArgumentException if the operator is not one of "+", "-", or "*"
      */
-    public static int calculate(int num1, int num2, String operator) {
+    public static int calculate(int num1, int num2, char operator) {
         return switch (operator) {
-            case "+" -> num1 + num2;
-            case "-" -> num1 - num2;
-            case "*" -> num1 * num2;
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            case '*' -> num1 * num2;
             default -> throw new IllegalArgumentException("No-know operator: " + operator);
         };
     }
@@ -76,8 +76,8 @@ public class Calculate {
      *
      * @return a randomly selected operator ("+", "-", or "*")
      */
-    public static String randomMathOperator() {
-        String[] operators = {"+", "-", "*"};
+    public static char randomMathOperator() {
+        char[] operators = {'+', '-', '*'};
         return operators[RANDOM.nextInt(operators.length)];
     }
 }

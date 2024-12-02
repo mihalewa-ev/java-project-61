@@ -15,25 +15,17 @@ public class Engine {
      * Gets the username and stores it.
      * Prompts the user for their name and greets them.
      * @return means a user's name
+     * @param gameRules the game rules to display.
      */
-    public static String getUserName() {
+    public static String greetingUser(String gameRules) {
         Scanner inputScanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = inputScanner.next();
         System.out.println("Hello, " + userName);
+        System.out.println(gameRules);
 
         return userName;
-    }
-
-    /**
-     * Displays the game rules.
-     * First prompts for the username, then displays the provided game rules.
-     *
-     * @param gameRules the game rules to display.
-     */
-    public static void printRules(String gameRules) {
-        System.out.println(gameRules);
     }
 
     /**
@@ -41,7 +33,7 @@ public class Engine {
      * Congratulates the user on the win, using their name.
      * @param userName the user's name to display.
      */
-    public static void printWinMessage(String userName) {
+    public static void printFinalMessage(String userName) {
         System.out.println("Congratulations, " + userName + "!");
     }
 
@@ -53,7 +45,7 @@ public class Engine {
      * @param correctAnswer the correct answer to display.
      * @param userName the user's name to display.
      */
-    public static void printLoseMessage(String userReply, String correctAnswer, String userName) {
+    public static void printFinalMessage(String userReply, String correctAnswer, String userName) {
         System.out.println(userReply + " is wrong answer ;( Correct answer was " + correctAnswer);
         System.out.println("Let's try again, " + userName + "!");
     }
@@ -75,8 +67,7 @@ public class Engine {
      * @param arResult an array of result method.
      */
     public static void play(String gameRules, String[][] arResult) {
-        String userName = getUserName();
-        printRules(gameRules);
+        String userName = greetingUser(gameRules);
 
         int score = 0; // user's starting points
 
@@ -91,11 +82,11 @@ public class Engine {
             if (userReply.equals(correctAnswer)) {
                 System.out.println("Correct!");
             } else {
-                printLoseMessage(userReply, correctAnswer, userName);
+                printFinalMessage(userReply, correctAnswer, userName);
                 return;
             }
         }
 
-        printWinMessage(userName);
+        printFinalMessage(userName);
     }
 }
